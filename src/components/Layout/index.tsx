@@ -1,29 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { Header } from "../Header";
 
-import { NavBar, Footer, Header, DomHead } from "..";
-import { ResponsiveNavbar } from "../Navbar";
-
-function Layout({ children }: { children: React.ReactNode }) {
-  const [windowWidth, setWindowWidth] = useState(0);
-
-  useEffect(() => {
-    setWindowWidth(window.innerWidth);
-    window.addEventListener("resize", () => {
-      setWindowWidth(window.innerWidth);
-    });
-  }, [windowWidth]);
-
+export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className={`w-screen h-screen`}>
-      {/* <DomHead /> */}
-      <Header>
-        <NavBar />
-      </Header>
-      {children}
-      {windowWidth <= 700 && <ResponsiveNavbar />}
-      {/* <Footer /> */}
+    <div className="min-h-screen bg-black">
+      <Header />
+      <main>{children}</main>
     </div>
   );
 }
-
-export default Layout;
