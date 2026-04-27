@@ -437,4 +437,168 @@ export const projects: Project[] = [
       ],
     },
   },
+  {
+    id: "ecommerce-dotnet",
+    title: "Ecommerce Microsserviços .NET 8",
+    shortDescription:
+      "Plataforma completa de e-commerce com arquitetura de microsserviços, CQRS, Event-Driven, gRPC e API Gateway.",
+    description:
+      "Sistema de e-commerce distribuído construído com .NET 8, implementando microsserviços independentes para Catálogo, Carrinho, Descontos e Pedidos. Utiliza padrões avançados como CQRS, Vertical Slice Architecture, Event-Driven com RabbitMQ, comunicação síncrona via gRPC e API Gateway com YARP.",
+    image:
+      "https://github.com/matheusgit1/Ecommerce-Shop/blob/main/src/Images/aplica%C3%A7%C3%A3o.png?raw=true",
+    techStack: [
+      ".NET 8",
+      "C# 12",
+      "ASP.NET Core",
+      "gRPC",
+      "YARP Gateway",
+      "RabbitMQ",
+      "Redis",
+      "PostgreSQL",
+      "SQL Server",
+      "MassTransit",
+      "MediatR",
+      "Docker",
+    ],
+    keyFeatures: [
+      "Microsserviços distribuídos",
+      "CQRS + Vertical Slice",
+      "Event-Driven Architecture",
+      "API Gateway com YARP",
+      "Cache distribuído com Redis",
+      "Observabilidade com OpenTelemetry",
+    ],
+    metrics: [
+      { label: "Microsserviços", value: "4" },
+      { label: "Bancos de Dados", value: "4 tipos" },
+      { label: "Comunicação", value: "gRPC + RabbitMQ" },
+      { label: "Cache", value: "Redis" },
+    ],
+    github: "https://github.com/matheusgit1/Ecommerce-Shop",
+    live: "https://ecommerce-shop-demo.com",
+
+    details: {
+      overview: `Este projeto implementa um e-commerce completo utilizando arquitetura de microsserviços com .NET 8. Cada domínio de negócio (Catálogo, Carrinho, Descontos, Pedidos) é um microsserviço independente, com seu próprio banco de dados e responsabilidades específicas.
+
+O sistema demonstra domínio em padrões avançados: CQRS para separação de comandos e queries, Vertical Slice Architecture para organizar funcionalidades por recurso, Event-Driven Architecture para comunicação assíncrona entre serviços, e gRPC para comunicação síncrona de alta performance.`,
+
+      architecture: `A arquitetura é composta por 4 microsserviços principais:
+
+1. **Catalog Service**: Gerencia produtos e categorias. Utiliza PostgreSQL com Marten (Document DB) e padrão CQRS via MediatR.
+
+2. **Basket Service**: Gerencia carrinho de compras do usuário. Utiliza Redis como cache distribuído e consome Discount Service via gRPC.
+
+3. **Discount Service**: Serviço gRPC para cálculos de desconto. Utiliza SQLite com Entity Framework Core.
+
+4. **Ordering Service**: Gerencia pedidos e consumo de eventos. Implementa DDD, Clean Architecture e consome RabbitMQ via MassTransit.
+
+**Comunicação**: 
+- Síncrona: Basket ↔ Discount via gRPC
+- Assíncrona: Basket → Ordering via RabbitMQ (evento BasketCheckout)
+
+**API Gateway**: YARP unifica acesso aos microsserviços, aplica rate limiting e roteamento.`,
+
+      challenges: [
+        "Coordenar comunicação síncrona (gRPC) com assíncrona (RabbitMQ) entre serviços",
+        "Gerenciar consistência eventual entre serviços e bancos diferentes",
+        "Implementar cache distribuído (Redis) com padrão Cache-Aside no Basket Service",
+        "Manter transações e migrações automáticas entre 4 bancos diferentes (PostgreSQL, SQL Server, SQLite, Redis)",
+        "Configurar roteamento dinâmico e rate limiting no YARP API Gateway",
+        "Implementar telemetria e tracing distribuído com OpenTelemetry",
+      ],
+
+      solutions: [
+        "gRPC para baixa latência em descontos + MassTransit com RabbitMQ para eventos",
+        "Saga pattern com compensações e outbox pattern no Ordering Service",
+        "Padrão Proxy + Decorator com IDistributedCache e Redis",
+        "Entity Framework Core com auto-migração + Marten para Document DB",
+        "Configuração declarativa de rotas no appsettings.json + rate limiting policies",
+        "OpenTelemetry Collector + Jaeger + Prometheus + Grafana",
+      ],
+
+      images: [
+        "https://github.com/matheusgit1/Ecommerce-Shop/blob/main/src/Images/aplica%C3%A7%C3%A3o.png?raw=true",
+        "https://github.com/matheusgit1/Ecommerce-Shop/blob/main/src/Images/arquitetura.png?raw=true",
+        "https://github.com/matheusgit1/Ecommerce-Shop/blob/main/src/Images/shop.png?raw=true",
+        "https://github.com/matheusgit1/Ecommerce-Shop/blob/main/src/Images/telemetry.png?raw=true",
+      ],
+
+      diagrams: [],
+
+      fullTechStack: {
+        frontend: [
+          "ASP.NET Core Razor Pages",
+          "Bootstrap 5",
+          "JavaScript",
+          "HTML5/CSS3",
+        ],
+        backend: [
+          ".NET 8",
+          "C# 12",
+          "ASP.NET Core Web API",
+          "gRPC",
+          "MassTransit",
+          "MediatR",
+          "FluentValidation",
+          "Mapster",
+          "YARP API Gateway",
+        ],
+        infrastructure: [
+          "PostgreSQL (Catalog/Basket)",
+          "SQL Server (Ordering)",
+          "SQLite (Discount)",
+          "Redis (Cache)",
+          "RabbitMQ (Message Broker)",
+          "Docker Compose",
+          "OpenTelemetry",
+        ],
+        testing: ["xUnit", "Moq", "FluentAssertions"],
+      },
+
+      features: [
+        {
+          title: "Microsserviços Distribuídos",
+          description:
+            "4 serviços independentes com bancos de dados dedicados e responsabilidades únicas.",
+          implementation:
+            "Catalog (PostgreSQL/Marten), Basket (PostgreSQL/Redis), Discount (SQLite/gRPC), Ordering (SQL Server/DDD)",
+        },
+        {
+          title: "CQRS + Vertical Slice",
+          description:
+            "Separação de comandos e queries com organização por recurso ao invés de camadas técnicas.",
+          implementation:
+            "MediatR + Feature Folders + FluentValidation para cada operação",
+        },
+        {
+          title: "Comunicação Híbrida",
+          description:
+            "gRPC para alta performance síncrona e RabbitMQ para eventos assíncrono.",
+          implementation:
+            "Basket ↔ Discount via gRPC; Basket → Ordering via MassTransit/RabbitMQ",
+        },
+        {
+          title: "API Gateway com YARP",
+          description:
+            "Proxy reverso com roteamento dinâmico, rate limiting e políticas de gateway.",
+          implementation:
+            "YARP (Yet Another Reverse Proxy) da Microsoft com configuração declarativa",
+        },
+        {
+          title: "Cache Distribuído",
+          description:
+            "Redis com padrão Cache-Aside para melhorar performance do carrinho.",
+          implementation:
+            "IDistributedCache + Redis + padrão Proxy/Decorator no Basket Service",
+        },
+        {
+          title: "Observabilidade Completa",
+          description:
+            "Tracing distribuído, métricas e logs centralizados com OpenTelemetry.",
+          implementation:
+            "OpenTelemetry Collector + Jaeger (tracing) + Prometheus (métricas) + Grafana",
+        },
+      ],
+    },
+  },
 ];

@@ -1,6 +1,6 @@
 "use client";
 
-import { FaGithub, FaMailchimp } from "react-icons/fa";
+import { FaGithub, FaMailchimp, FaLinkedin } from "react-icons/fa";
 import { useState } from "react";
 
 export function Header() {
@@ -30,7 +30,7 @@ export function Header() {
 
           <div className="hidden md:flex items-center space-x-5">
             <a
-              href="https://github.com"
+              href="https://github.com/matheusgit1"
               target="_blank"
               className="text-gray-400 hover:text-white transition-colors duration-300"
               aria-label="GitHub"
@@ -38,11 +38,19 @@ export function Header() {
               <FaGithub size={18} />
             </a>
             <a
-              href="mailto:benrobo@example.com"
+              href="mailto:pereira.matheusalves@gmail.com"
               className="text-gray-400 hover:text-white transition-colors duration-300"
               aria-label="Email"
             >
               <FaMailchimp size={18} />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/matheus-ap/"
+              target="_blank"
+              className="text-gray-400 hover:text-white transition-colors duration-300"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin size={18} />
             </a>
           </div>
 
@@ -104,6 +112,13 @@ export function Header() {
                   className="text-gray-400 hover:text-white"
                 >
                   <FaMailchimp size={18} />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/matheus-ap/"
+                  target="_blank"
+                  className="text-gray-400 hover:text-white"
+                >
+                  <FaLinkedin size={18} />
                 </a>
               </div>
             </nav>

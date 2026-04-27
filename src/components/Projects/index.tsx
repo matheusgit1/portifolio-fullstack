@@ -69,13 +69,13 @@ export function Projects() {
                   >
                     <FaGithub size={16} /> Code
                   </a>
-                  <a
+                  {/* <a
                     href={project.live}
                     target="_blank"
                     className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition"
                   >
                     <FaLink size={16} /> Live
-                  </a>
+                  </a> */}
                 </div>
               </div>
             </div>
