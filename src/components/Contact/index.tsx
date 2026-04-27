@@ -1,4 +1,4 @@
-import { FaGithub, FaTwitter, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaTwitter, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 
 export function Contact() {
   return (
@@ -28,6 +28,13 @@ export function Contact() {
               className="text-gray-400 hover:text-white transition"
             >
               <FaLinkedin size={24} />
+            </a>
+            <a
+              href="https://wa.me/5527997822665"
+              target="_blank"
+              className="text-gray-400 hover:text-white transition"
+            >
+              <FaWhatsapp size={24} />
             </a>
           </div>
           <div className="mt-12 pt-8 border-t border-white/10 text-gray-500 text-sm">

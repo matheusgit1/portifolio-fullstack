@@ -1,6 +1,42 @@
 import { FaArrowRight } from "react-icons/fa";
+import {
+  SiNestjs,
+  SiNextdotjs,
+  SiNuxt,
+  SiTypescript,
+  SiJavascript,
+  SiReact,
+  SiNodedotjs,
+  SiDotnet,
+  SiPostgresql,
+  SiRedis,
+  SiDocker,
+  SiRabbitmq,
+  SiJest,
+  SiSocketdotio,
+} from "react-icons/si";
+import { DiMsqlServer } from "react-icons/di";
 
 export function Hero() {
+  const technologies = [
+    { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+    { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+    { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
+    { name: ".NET", icon: SiDotnet, color: "#512BD4" },
+    { name: "NestJS", icon: SiNestjs, color: "#E0234E" },
+    { name: "Next.js", icon: SiNextdotjs, color: "#FFFFFF" },
+    { name: "Nuxt.js", icon: SiNuxt, color: "#00DC82" },
+    { name: "React", icon: SiReact, color: "#61DAFB" },
+    { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
+    { name: "SQL Server", icon: DiMsqlServer, color: "#CC2929" },
+    { name: "Redis", icon: SiRedis, color: "#DC382D" },
+    { name: "Docker", icon: SiDocker, color: "#2496ED" },
+    { name: "RabbitMQ", icon: SiRabbitmq, color: "#FF6600" },
+    //tests
+    { name: "Jest", icon: SiJest, color: "#C21325" },
+    { name: "Socket.IO", icon: SiSocketdotio, color: "#010101" },
+  ];
+
   return (
     <section
       id="home"
@@ -8,12 +44,14 @@ export function Hero() {
     >
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
+          {/* Badge */}
           <div className="inline-block mb-8">
             <span className="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-gray-300 text-sm font-medium">
-              full-stack developer/ multistack developer
+              full-stack developer / software architect
             </span>
           </div>
 
+          {/* Title */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-4 leading-tight">
             Making The{" "}
             <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
@@ -28,10 +66,37 @@ export function Hero() {
             Using I's and O's.
           </p>
 
-          <p className="text-lg text-gray-500 mb-12 max-w-2xl">
+          <p className="text-lg text-gray-500 mb-8 max-w-2xl">
             Problem solving is what makes me unique.
           </p>
 
+          {/* Technologies Grid */}
+          <div className="mb-12">
+            <p className="text-sm text-gray-400 mb-4 tracking-wide">
+              TECH STACK
+            </p>
+            <div className="flex flex-wrap gap-3">
+              {technologies.map((tech) => (
+                <div
+                  key={tech.name}
+                  className="group relative px-3 py-2 rounded-lg bg-white/5 border border-white/10 hover:border-blue-500/50 transition-all duration-300"
+                >
+                  <div className="flex items-center gap-2">
+                    <tech.icon
+                      size={16}
+                      style={{ color: tech.color }}
+                      className="group-hover:scale-110 transition-transform"
+                    />
+                    <span className="text-xs text-gray-300 group-hover:text-white transition">
+                      {tech.name}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Actions */}
           <div className="flex items-center gap-12 mb-12">
             <div className="group cursor-pointer">
               <div className="flex items-center gap-2">
@@ -47,13 +112,6 @@ export function Hero() {
             </div>
 
             <div className="w-px h-12 bg-gray-800"></div>
-
-            {/* <div>
-              <div className="text-3xl md:text-4xl font-bold text-white">
-                210
-              </div>
-              <div className="text-xs text-gray-500">Projects</div>
-            </div> */}
           </div>
 
           <a
