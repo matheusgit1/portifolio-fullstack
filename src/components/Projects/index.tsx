@@ -1,23 +1,30 @@
+"use client";
+
 import { FaGithub, FaLink, FaWhatsapp, FaCheck } from "react-icons/fa";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { projects } from "@/data/projects";
+import { projects } from "@/data/projects-pt-BR";
 
-export function Projects() {
+export type ProjectsTranslations = {
+  title: string;
+  titleHighlight: string;
+  description: string;
+  codeLabel: string;
+};
+
+export function Projects({ t }: { t: ProjectsTranslations }) {
   const router = useRouter();
   return (
     <section id="projects" className="py-20">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Featured{" "}
-            <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
-              Projects
+            {t.title}{" "}
+            <span className="bg-linear-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+              {t.titleHighlight}
             </span>
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            Here are some of my best works that showcase my expertise
-          </p>
+          <p className="text-gray-400 max-w-2xl mx-auto">{t.description}</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -67,15 +74,8 @@ export function Projects() {
                     target="_blank"
                     className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition"
                   >
-                    <FaGithub size={16} /> Code
+                    <FaGithub size={16} /> {t.codeLabel}
                   </a>
-                  {/* <a
-                    href={project.live}
-                    target="_blank"
-                    className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition"
-                  >
-                    <FaLink size={16} /> Live
-                  </a> */}
                 </div>
               </div>
             </div>

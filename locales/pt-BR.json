@@ -1,0 +1,116 @@
+{
+  "about": {
+    "sectionTitle": {
+      "title": "Sobre",
+      "highlight": "Mim"
+    },
+    "description": "Engenheiro de software especializado em sistemas backend, arquiteturas distribuídas e soluções escaláveis",
+    "profileName": "Matheus Pereira",
+    "profileRole": "Desenvolvedor Full-Stack Pleno / Arquiteto de Software",
+    "profileLocation": "Linhares, ES - Brasil",
+    "bio1": "Desenvolvedor de software focado em backend e com sólida experiência em projetar, desenvolver e manter sistemas escaláveis em ambientes corporativos e de alta disponibilidade. Forte experiência em ecossistemas NodeJS e .NET, com amplo uso de TypeScript e plataformas em nuvem.",
+    "bio2": "Experiência em práticas de DevOps, ambientes conteinerizados, pipelines CI/CD, monitoramento e arquitetura de software. Também possui conhecimento fundamental em ciência de dados e automação.",
+    "skillsTitle": "Competências",
+    "skillsHighlight": "Técnicas",
+    "languagesTitle": "Idiomas",
+    "languageItems": [
+      { "language": "🇵🇹 Português", "level": "Nativo" },
+      { "language": "🇺🇸 Inglês", "level": "Avançado (C1)" },
+      { "language": "🇪🇸 Espanhol", "level": "Básico" }
+    ],
+    "availabilityTitle": "Disponibilidade",
+    "availabilityItems": [
+      "Aberto a oportunidades",
+      "Disponibilidade mundial"
+    ],
+    "proficiencyLabel": "Proficiência",
+    "educationTitle": "Educação",
+    "certificationsTitle": "Certificações",
+    "adaptiveNote": "Perfil dinâmico e adaptável — Sempre aprendendo, sempre evoluindo",
+    "skills": [
+      {
+        "category": "Backend e Linguagens",
+        "items": ["TypeScript", "JavaScript", "C# .NET", "Node.js", "NestJS", "Python"],
+        "level": "95"
+      },
+      {
+        "category": "Frontend",
+        "items": ["React.js", "Next.js", "Tailwind CSS", "shadcn/ui"],
+        "level": "85"
+      },
+      {
+        "category": "Bancos de Dados e ORMs",
+        "items": ["PostgreSQL", "MongoDB", "SQL Server", "MySQL", "Prisma", "TypeORM", "Entity Framework"],
+        "level": "90"
+      },
+      {
+        "category": "Nuvem e DevOps",
+        "items": ["AWS (12+ serviços)", "Docker", "Kubernetes", "Pipelines CI/CD", "Grafana", "Datadog"],
+        "level": "88"
+      },
+      {
+        "category": "Arquitetura e Design",
+        "items": ["Microserviços", "Orientado a Eventos", "Arquitetura Limpa", "DDD", "CQRS", "Padrão Saga"],
+        "level": "92"
+      },
+      {
+        "category": "Dados e IA",
+        "items": ["Análise de Dados", "Processamento de Dados em Python", "Fundamentos de Machine Learning", "Integração com LLM"],
+        "level": "75"
+      }
+    ],
+    "education": [
+      {
+        "degree": "Pós-graduação em Tecnologia da Informação",
+        "institution": "UNIMINAS",
+        "period": "2024 - 2025"
+      },
+      {
+        "degree": "Especialização em Ciência de Dados",
+        "institution": "ADA",
+        "period": "2023 - 2024"
+      },
+      {
+        "degree": "Engenharia - Controle e Automação",
+        "institution": "IFES",
+        "period": "2019 - 2024"
+      }
+    ],
+    "certifications": [
+      {
+        "name": "AWS Certified Developer - Associate",
+        "issuer": "Amazon Web Services",
+        "date": "2024 - 2027",
+        "link": "https://cp.certmetrics.com/amazon/en/public/verify/credential/d26f05cc2deb4c21867a18f71a6f74a1"
+      }
+    ]
+  },
+  "header": {
+    "name": "Matheus Alves Pereira",
+    "navItems": ["Início", "Sobre", "Projetos", "Contato"]
+  },
+  "hero": {
+    "badge": "desenvolvedor full-stack / arquiteto de software",
+    "titlePart1": "Tornando o",
+    "titleHighlight": "Impossível",
+    "titlePart2": "Possível.",
+    "subtitle": "Usando 1's e 0's.",
+    "description": "Resolução de problemas é o que me torna único.",
+    "techStackLabel": "TECH STACK",
+    "cvLabel": "GO",
+    "cvSublabel": "Ver CV",
+    "workButtonLabel": "Ver meus trabalhos"
+  },
+  "contact": {
+    "title": "Vamos nos",
+    "highlight": "Conectar",
+    "description": "Estou sempre interessado em ouvir sobre novas oportunidades",
+    "copyright": "© {year} Matheus Alves Pereira. Todos os direitos reservados."
+  },
+  "projects": {
+    "title": "Projetos",
+    "titleHighlight": "em Destaque",
+    "description": "Aqui estão alguns dos meus melhores trabalhos que mostram minha experiência",
+    "codeLabel": "Código"
+  }
+}

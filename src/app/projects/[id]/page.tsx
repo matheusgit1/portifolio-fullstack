@@ -13,7 +13,7 @@ import {
   FaShieldAlt,
   FaChartLine,
 } from "react-icons/fa";
-import { projects } from "@/data/projects";
+import { projects } from "@/data/projects-pt-BR";
 
 export default function ProjectPage() {
   const { id } = useParams();
@@ -129,7 +129,7 @@ export default function ProjectPage() {
                     className="bg-white/5 rounded-xl p-5 border border-white/10"
                   >
                     <div className="flex items-start gap-3">
-                      <div className="w-6 h-6 bg-red-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <div className="w-6 h-6 bg-red-500/20 rounded-full flex items-center justify-center shrink-0 mt-0.5">
                         <span className="text-red-400 text-xs font-bold">
                           !
                         </span>
@@ -139,7 +139,7 @@ export default function ProjectPage() {
                           {challenge}
                         </p>
                         <div className="flex items-start gap-2 text-green-400">
-                          <FaCheck size={16} className="flex-shrink-0 mt-0.5" />
+                          <FaCheck size={16} className="shrink-0 mt-0.5" />
                           <p className="text-gray-400 text-sm">
                             {project.details.solutions[index]}
                           </p>

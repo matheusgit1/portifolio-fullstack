@@ -1,3 +1,5 @@
+"use client";
+
 import { FaArrowRight } from "react-icons/fa";
 import {
   SiNestjs,
@@ -17,7 +19,20 @@ import {
 } from "react-icons/si";
 import { DiMsqlServer } from "react-icons/di";
 
-export function Hero() {
+export type HeroTranslations = {
+  badge: string;
+  titlePart1: string;
+  titleHighlight: string;
+  titlePart2: string;
+  subtitle: string;
+  description: string;
+  techStackLabel: string;
+  cvLabel: string;
+  cvSublabel: string;
+  workButtonLabel: string;
+};
+
+export function Hero({ t }: { t: HeroTranslations }) {
   const technologies = [
     { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
     { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
@@ -32,7 +47,6 @@ export function Hero() {
     { name: "Redis", icon: SiRedis, color: "#DC382D" },
     { name: "Docker", icon: SiDocker, color: "#2496ED" },
     { name: "RabbitMQ", icon: SiRabbitmq, color: "#FF6600" },
-    //tests
     { name: "Jest", icon: SiJest, color: "#C21325" },
     { name: "Socket.IO", icon: SiSocketdotio, color: "#010101" },
   ];
@@ -47,33 +61,31 @@ export function Hero() {
           {/* Badge */}
           <div className="inline-block mb-8">
             <span className="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-gray-300 text-sm font-medium">
-              full-stack developer / software architect
+              {t.badge}
             </span>
           </div>
 
           {/* Title */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-4 leading-tight">
-            Making The{" "}
-            <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-              Impossible
+            {t.titlePart1}{" "}
+            <span className="bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+              {t.titleHighlight}
             </span>
           </h1>
 
           <p className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-400 mb-4">
-            Possible.
+            {t.titlePart2}
           </p>
-          <p className="text-xl md:text-2xl text-gray-500 mb-3">
-            Using I's and O's.
-          </p>
+          <p className="text-xl md:text-2xl text-gray-500 mb-3">{t.subtitle}</p>
 
           <p className="text-lg text-gray-500 mb-8 max-w-2xl">
-            Problem solving is what makes me unique.
+            {t.description}
           </p>
 
           {/* Technologies Grid */}
           <div className="mb-12">
             <p className="text-sm text-gray-400 mb-4 tracking-wide">
-              TECH STACK
+              {t.techStackLabel}
             </p>
             <div className="flex flex-wrap gap-3">
               {technologies.map((tech) => (
@@ -101,14 +113,14 @@ export function Hero() {
             <div className="group cursor-pointer">
               <div className="flex items-center gap-2">
                 <span className="text-3xl md:text-4xl font-bold text-white group-hover:text-blue-400 transition">
-                  GO
+                  {t.cvLabel}
                 </span>
                 <FaArrowRight
                   size={24}
                   className="text-gray-400 group-hover:text-blue-400 group-hover:translate-x-1 transition-all"
                 />
               </div>
-              <span className="text-xs text-gray-500">View CV</span>
+              <span className="text-xs text-gray-500">{t.cvSublabel}</span>
             </div>
 
             <div className="w-px h-12 bg-gray-800"></div>
@@ -118,7 +130,7 @@ export function Hero() {
             href="#projects"
             className="inline-flex items-center gap-2 px-8 py-4 bg-white/5 border border-white/10 rounded-lg text-white font-medium hover:bg-white/10 hover:border-blue-500/50 transition-all duration-300"
           >
-            View my work
+            {t.workButtonLabel}
             <FaArrowRight size={18} />
           </a>
         </div>

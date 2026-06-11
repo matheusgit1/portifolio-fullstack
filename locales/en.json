@@ -1,0 +1,116 @@
+{
+  "about": {
+    "sectionTitle": {
+      "title": "About",
+      "highlight": "Me"
+    },
+    "description": "Software engineer specialized in backend systems, distributed architectures, and scalable solutions",
+    "profileName": "Matheus Pereira",
+    "profileRole": "Mid-level Full-Stack Developer / Software Architect",
+    "profileLocation": "Linhares, ES - Brazil",
+    "bio1": "Software developer with focus on backend and solid experience in designing, developing and maintaining scalable systems in corporate and high-availability environments. Strong experience in NodeJS and .NET ecosystems, with extensive use of TypeScript and cloud platforms.",
+    "bio2": "Experience in DevOps practices, containerized environments, CI/CD pipelines, monitoring, and software architecture. Also possesses fundamental knowledge in data science and automation.",
+    "skillsTitle": "Technical",
+    "skillsHighlight": "Expertise",
+    "languagesTitle": "Languages",
+    "languageItems": [
+      { "language": "🇵🇹 Portuguese", "level": "Native" },
+      { "language": "🇺🇸 English", "level": "Advanced (C1)" },
+      { "language": "🇪🇸 Spanish", "level": "Basic" }
+    ],
+    "availabilityTitle": "Availability",
+    "availabilityItems": [
+      "Open for opportunities",
+      "Worldwide availability"
+    ],
+    "proficiencyLabel": "Proficiency",
+    "educationTitle": "Education",
+    "certificationsTitle": "Certifications",
+    "adaptiveNote": "Dynamic & Adaptive Profile — Always learning, always evolving",
+    "skills": [
+      {
+        "category": "Backend & Languages",
+        "items": ["TypeScript", "JavaScript", "C# .NET", "Node.js", "NestJS", "Python"],
+        "level": "95"
+      },
+      {
+        "category": "Frontend",
+        "items": ["React.js", "Next.js", "Tailwind CSS", "shadcn/ui"],
+        "level": "85"
+      },
+      {
+        "category": "Databases & ORMs",
+        "items": ["PostgreSQL", "MongoDB", "SQL Server", "MySQL", "Prisma", "TypeORM", "Entity Framework"],
+        "level": "90"
+      },
+      {
+        "category": "Cloud & DevOps",
+        "items": ["AWS (12+ services)", "Docker", "Kubernetes", "CI/CD Pipelines", "Grafana", "Datadog"],
+        "level": "88"
+      },
+      {
+        "category": "Architecture & Design",
+        "items": ["Microservices", "Event-Driven", "Clean Architecture", "DDD", "CQRS", "Saga Pattern"],
+        "level": "92"
+      },
+      {
+        "category": "Data & AI",
+        "items": ["Data Analysis", "Python Data Processing", "Machine Learning Fundamentals", "LLM Integration"],
+        "level": "75"
+      }
+    ],
+    "education": [
+      {
+        "degree": "Postgraduate in Information Technology",
+        "institution": "UNIMINAS",
+        "period": "2024 - 2025"
+      },
+      {
+        "degree": "Specialization in Data Science",
+        "institution": "ADA",
+        "period": "2023 - 2024"
+      },
+      {
+        "degree": "Engineering - Control & Automation",
+        "institution": "IFES",
+        "period": "2019 - 2024"
+      }
+    ],
+    "certifications": [
+      {
+        "name": "AWS Certified Developer - Associate",
+        "issuer": "Amazon Web Services",
+        "date": "2024 - 2027",
+        "link": "https://cp.certmetrics.com/amazon/en/public/verify/credential/d26f05cc2deb4c21867a18f71a6f74a1"
+      }
+    ]
+  },
+  "header": {
+    "name": "Matheus Alves Pereira",
+    "navItems": ["Home", "About", "Projects", "Contact"]
+  },
+  "hero": {
+    "badge": "full-stack developer / software architect",
+    "titlePart1": "Making The",
+    "titleHighlight": "Impossible",
+    "titlePart2": "Possible.",
+    "subtitle": "Using I's and O's.",
+    "description": "Problem solving is what makes me unique.",
+    "techStackLabel": "TECH STACK",
+    "cvLabel": "GO",
+    "cvSublabel": "View CV",
+    "workButtonLabel": "View my work"
+  },
+  "contact": {
+    "title": "Let's",
+    "highlight": "Connect",
+    "description": "I'm always interested in hearing about new opportunities",
+    "copyright": "© {year} Matheus Alves Pereira. All rights reserved."
+  },
+  "projects": {
+    "title": "Featured",
+    "titleHighlight": "Projects",
+    "description": "Here are some of my best works that showcase my expertise",
+    "codeLabel": "Code"
+  }
+}
