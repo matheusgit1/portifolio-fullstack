@@ -29,6 +29,76 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
+## Docker Setup
+
+This project can be run in a Docker container using Docker Compose.
+
+### Prerequisites
+
+- [Docker](https://www.docker.com/products/docker-desktop) installed
+- [Docker Compose](https://docs.docker.com/compose/install/) installed
+
+### Running with Docker
+
+1. **Build and start the container:**
+
+```bash
+docker-compose up -d
+```
+
+The application will be available at [http://localhost:3000](http://localhost:3000)
+
+2. **View logs:**
+
+```bash
+docker-compose logs -f
+```
+
+3. **Stop the container:**
+
+```bash
+docker-compose down
+```
+
+### Docker Commands
+
+- **Build the image:**
+  ```bash
+  docker build -t portifolio-fullstack .
+  ```
+
+- **Run the container directly:**
+  ```bash
+  docker run -p 3000:3000 portifolio-fullstack
+  ```
+
+- **View running containers:**
+  ```bash
+  docker ps
+  ```
+
+- **Remove container and image:**
+  ```bash
+  docker-compose down -v
+  docker rmi portifolio-fullstack
+  ```
+
+### Development with Docker
+
+To enable hot reload during development, uncomment the volumes section in `docker-compose.yml`:
+
+```yaml
+volumes:
+  - .:/app
+  - /app/node_modules
+  - /app/.next
+```
+
+Then run:
+```bash
+docker-compose up
+```
+
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.

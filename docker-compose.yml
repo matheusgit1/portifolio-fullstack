@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  nextjs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: portifolio-fullstack
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+    restart: unless-stopped
+#
+
+# services:
+#   portfolio:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     container_name: portifolio-fullstack
+#     ports:
+#       - "3000:3000"
+#     environment:
+#       - NODE_ENV=production
+#       - NEXT_TELEMETRY_DISABLED=1
+#     restart: unless-stopped
+#     # Uncomment for development with live reload:
+#     # volumes:
+#     #   - .:/app
+#     #   - /app/node_modules
+#     #   - /app/.next
