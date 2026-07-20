@@ -17,7 +17,7 @@ import {
   FaTimes,
   FaExpand,
 } from "react-icons/fa";
-import { projects } from "@/data/projects-pt-BR";
+import { projects } from "@/data/project-en";
 
 export default function ProjectPage() {
   const { id } = useParams();

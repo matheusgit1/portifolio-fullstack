@@ -3,7 +3,7 @@
 import { FaGithub, FaLink, FaWhatsapp, FaCheck } from "react-icons/fa";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { projects } from "@/data/projects-pt-BR";
+import { projects } from "@/data/project-en";
 
 export type ProjectsTranslations = {
   title: string;
