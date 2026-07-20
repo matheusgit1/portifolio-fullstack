@@ -2,6 +2,135 @@ import { Project } from "@/types/project";
 
 export const projects: Project[] = [
   {
+    id: "flashconcurseiro",
+    title: "FlashConcurseiro",
+    shortDescription:
+      "Flashcard app with modern architecture, real-time synchronization, and spaced repetition system for public exams.",
+    description:
+      "Mobile flashcard study platform developed with React Native (Expo) and Firebase. The app allows users to create, review, and track progress on flashcards for public exams, featuring scalable architecture, authentication, real-time synchronization, and a spaced repetition system to optimize knowledge retention.",
+    image:
+      "https://github.com/matheusgit1/FlashConcurseiro/blob/main/screenshots/screenshot_3.jpeg?raw=true",
+    techStack: [
+      "React Native",
+      "Expo",
+      "TypeScript",
+      "Firebase",
+      "Firestore",
+      "Firebase Auth",
+      "Expo Router",
+      "React Native Reanimated",
+    ],
+    keyFeatures: [
+      "Spaced Repetition System (SRS)",
+      "Real-time synchronization",
+      "Offline-first",
+      "Expo Router navigation",
+      "Firebase authentication",
+    ],
+    metrics: [
+      { label: "Flashcards", value: "200+" },
+      { label: "Disciplines", value: "6" },
+      { label: "Exams", value: "1" },
+      { label: "Users", value: "100+" },
+    ],
+    github: "https://github.com/matheusgit1/FlashConcurseiro",
+    live: "https://flashconcurseiro-demo.com",
+    details: {
+      overview:
+        "FlashConcurseiro is a mobile application designed to optimize public exam preparation through flashcards. The system uses a spaced repetition algorithm (SRS) for intelligent reviews, ensuring better content retention based on Ebbinghaus's forgetting curve.\n\nThe application was built with React Native (Expo), TypeScript, and Firebase, offering authentication, real-time synchronization, and offline-first capability. The architecture is modular, with clear separation of concerns between screens, services, and state management, ensuring maintainability and scalability.",
+      architecture:
+        "FlashConcurseiro's architecture follows a separation of concerns pattern with the following layers:\n\n1. **Presentation Layer**: Screens built with React Native and Expo Router for hybrid navigation (tabs + stack). Global user state is managed by Context API.\n\n2. **Services Layer**: Firebase integration (Auth, Firestore) for persistence and authentication. Specific services for each entity (flashcards, exams, disciplines).\n\n3. **Data Modeling Layer**: TypeScript-typed entities ensuring type safety and consistency.\n\n4. **Reusability Layer**: UI components and global styles via centralized theme, ensuring visual consistency.\n\n**Navigation Flow**: Users start at authentication (login/register), then navigate through main tabs (Home, Exams, Flashcards, Statistics, Profile) and access details (disciplines, exams, flashcards) via nested stack navigation.\n\n**Real-time Sync**: Firestore provides instant updates, allowing multiple devices to view the same progress simultaneously.",
+      challenges: [
+        "Designing hybrid navigation (tabs + stack) that was intuitive and scalable for users",
+        "Implementing dynamic filters by exam, discipline, and difficulty in flashcard listing",
+        "Creating a swipe-based review system with immediate visual feedback",
+        "Managing authentication state and Firebase synchronization during navigation",
+        "Building a custom progress system that showed evolution by discipline and exam",
+      ],
+      solutions: [
+        "Expo Router with nested navigation: main tabs + stacks for details, ensuring seamless flow",
+        "Dynamic filters implemented with React hooks, updating the list automatically on each change",
+        "Animations with React Native Reanimated for tactile and visual feedback during swipes",
+        "Context API for authentication state + Firestore listeners for real-time data",
+        "Custom progress bar with metrics by discipline and exam, based on Firestore data",
+      ],
+      //https://github.com/matheusgit1/FlashConcurseiro/blob/main/screenshots/screenshot_1.jpeg?raw=true
+      images: [
+        "https://github.com/matheusgit1/FlashConcurseiro/blob/main/screenshots/screenshot_1.jpeg?raw=true",
+        "https://github.com/matheusgit1/FlashConcurseiro/blob/main/screenshots/screenshot_2.jpeg?raw=true",
+        "https://github.com/matheusgit1/FlashConcurseiro/blob/main/screenshots/screenshot_3.jpeg?raw=true",
+        "https://github.com/matheusgit1/FlashConcurseiro/blob/main/screenshots/screenshot_4.jpeg?raw=true",
+        "https://github.com/matheusgit1/FlashConcurseiro/blob/main/screenshots/screenshot_5.jpeg?raw=true",
+        "https://github.com/matheusgit1/FlashConcurseiro/blob/main/screenshots/screenshot_6.jpeg?raw=true",
+        "https://github.com/matheusgit1/FlashConcurseiro/blob/main/screenshots/screenshot_7.jpeg?raw=true",
+        "https://github.com/matheusgit1/FlashConcurseiro/blob/main/screenshots/screenshot_8.jpeg?raw=true",
+        "https://github.com/matheusgit1/FlashConcurseiro/blob/main/screenshots/screenshot_9.jpeg?raw=true",
+      ],
+      diagrams: [],
+      fullTechStack: {
+        frontend: [
+          "React Native",
+          "Expo 51",
+          "TypeScript",
+          "Expo Router",
+          "React Native Reanimated",
+          "React Native Gesture Handler",
+          "React Native Safe Area Context",
+        ],
+        backend: [
+          "Firebase Authentication",
+          "Firestore",
+          "Firebase Security Rules",
+          "Firebase Admin SDK",
+        ],
+        infrastructure: [
+          "Firebase Hosting",
+          "EAS Build",
+          "Docker (local environment)",
+          "Google Cloud Platform",
+        ],
+        testing: ["Jest", "React Native Testing Library", "Detox"],
+      },
+      features: [
+        {
+          title: "Spaced Repetition System",
+          description:
+            "Intelligent algorithm that schedules reviews based on user performance, optimizing knowledge retention.",
+          implementation:
+            "Scheduling function that calculates the next review based on difficulty and user's right/wrong answers.",
+        },
+        {
+          title: "Hybrid Navigation",
+          description:
+            "Smooth navigation combining main tabs with nested stacks for details, ensuring native experience.",
+          implementation:
+            "Expo Router with nested navigation: main tabs + stacks for details.",
+        },
+        {
+          title: "Dynamic Filters",
+          description:
+            "Filter system by exam, discipline, and difficulty with real-time flashcard list updates.",
+          implementation:
+            "Dynamic filters implemented with React hooks, updating the list automatically on each change.",
+        },
+        {
+          title: "Swipe Review System",
+          description:
+            "Review interface with swipe gestures left (error) or right (correct), with immediate visual feedback.",
+          implementation:
+            "Animations with React Native Reanimated for tactile and visual feedback during swipes.",
+        },
+        {
+          title: "Firebase Authentication",
+          description:
+            "Login and registration system with Firebase, integrating email/password and Google authentication.",
+          implementation:
+            "Firebase Authentication with Context API for global state management.",
+        },
+      ],
+    },
+  },
+  {
     id: "crash-game",
     title: "Crash Game Engine",
     shortDescription:

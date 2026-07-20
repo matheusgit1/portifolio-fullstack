@@ -12,6 +12,13 @@ export type ProjectsTranslations = {
   codeLabel: string;
 };
 
+const handleImageClick = () => {
+  const imgElement = document.getElementById('project-image');
+  if (imgElement?.requestFullscreen) {
+    imgElement.requestFullscreen();
+  }
+};
+
 export function Projects({ t }: { t: ProjectsTranslations }) {
   const router = useRouter();
   return (
@@ -37,9 +44,11 @@ export function Projects({ t }: { t: ProjectsTranslations }) {
               <Link href={`/projects/${project.id}`} className="block">
                 <div className="relative h-48 overflow-hidden">
                   <img
+                    id="project-image"
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                    className="w-full h-full object-cover group-hover:scale-110 transition duration-500 cursor-pointer"
+                    // onClick={handleImageClick}
                   />
                 </div>
                 <div className="p-6">

@@ -2,6 +2,134 @@ import { Project } from "@/types/project";
 
 export const projects: Project[] = [
   {
+    id: "flashconcurseiro",
+    title: "FlashConcurseiro",
+    shortDescription:
+      "App de flashcards com arquitetura moderna, sincronização em tempo real e sistema de repetição espaçada para concursos públicos.",
+    description:
+      "Plataforma mobile de estudos com flashcards, desenvolvida com React Native (Expo) e Firebase. O aplicativo permite criar, revisar e acompanhar o progresso em flashcards de concursos públicos, com arquitetura escalável, autenticação, sincronização em tempo real e sistema de repetição espaçada para otimizar a retenção de conhecimento.",
+    image:
+      "https://github.com/matheusgit1/FlashConcurseiro/blob/main/screenshots/screenshot_3.jpeg?raw=true",
+    techStack: [
+      "React Native",
+      "Expo",
+      "TypeScript",
+      "Firebase",
+      "Firestore",
+      "Firebase Auth",
+      "Expo Router",
+      "React Native Reanimated",
+    ],
+    keyFeatures: [
+      "Sistema de repetição espaçada (ESR)",
+      "Sincronização em tempo real",
+      "Offline-first",
+      "Navegação com Expo Router",
+      "Autenticação com Firebase",
+    ],
+    metrics: [
+      { label: "Flashcards", value: "200+" },
+      { label: "Disciplinas", value: "6" },
+      { label: "Concursos", value: "1" },
+      { label: "Usuários", value: "100+" },
+    ],
+    github: "https://github.com/matheusgit1/flashconcurseiro",
+    live: "https://flashconcurseiro-demo.com",
+    details: {
+      overview:
+        "FlashConcurseiro é um aplicativo mobile desenvolvido para otimizar os estudos de concursos públicos por meio de flashcards. O sistema utiliza o algoritmo de repetição espaçada (ESR) para revisões inteligentes, garantindo maior retenção de conteúdo com base na curva do esquecimento de Ebbinghaus.\n\nA aplicação foi construída com React Native (Expo), TypeScript e Firebase, oferecendo autenticação, sincronização em tempo real e capacidade offline-first. A arquitetura é modular, com separação de responsabilidades entre telas, serviços e estados, garantindo manutenibilidade e escalabilidade.",
+      architecture:
+        "A arquitetura do FlashConcurseiro segue o padrão de separação de responsabilidades com as seguintes camadas:\n\n1. **Camada de Apresentação**: Telas desenvolvidas com React Native e Expo Router para navegação híbrida (tabs + stack). O estado global dos usuários é gerenciado por Context API.\n\n2. **Camada de Serviços**: Integração com Firebase (Auth, Firestore) para persistência e autenticação. Serviços específicos para cada entidade (flashcards, concursos, disciplinas).\n\n3. **Camada de Modelagem de Dados**: Entidades tipadas com TypeScript, garantindo segurança e consistência.\n\n4. **Camada de Reutilização**: Componentes UI e estilos globais via tema centralizado, garantindo consistência visual.\n\n**Fluxo de navegação**: O usuário começa na tela de autenticação (login/registro), depois navega por uma estrutura de abas principais (Início, Concursos, Flashcards, Estatísticas, Perfil) e pode acessar detalhes (disciplinas, concursos, flashcards) via stack de navegação aninhada.\n\n**Sincronização em tempo real**: O Firestore oferece atualizações instantâneas, permitindo que múltiplos dispositivos visualizem o mesmo progresso.",
+      challenges: [
+        "Projetar uma navegação híbrida (tabs + stack) que fosse intuitiva e escalável para o usuário",
+        "Implementar filtros dinâmicos por concurso, disciplina e dificuldade na listagem de flashcards",
+        "Criar um sistema de revisão com swipe (deslizar) que oferecesse feedback visual imediato",
+        "Gerenciar o estado de autenticação e sincronização com Firebase durante a navegação",
+        "Construir um sistema de progresso personalizado que mostrasse evolução por disciplina e concurso",
+      ],
+      solutions: [
+        "Expo Router com navegação aninhada: abas principais + stacks para detalhes, garantindo fluxo contínuo",
+        "Filtros dinâmicos implementados com React hooks, atualizando a lista automaticamente a cada alteração",
+        "Animações com React Native Reanimated para feedback tátil e visual durante o swipe",
+        "Context API para estado de autenticação + listeners do Firestore para dados em tempo real",
+        "Barra de progresso customizada com métricas por disciplina e concurso, baseada em dados do Firestore",
+      ],
+      images: [
+        "https://github.com/matheusgit1/FlashConcurseiro/blob/main/screenshots/screenshot_1.jpeg?raw=true",
+        "https://github.com/matheusgit1/FlashConcurseiro/blob/main/screenshots/screenshot_2.jpeg?raw=true",
+        "https://github.com/matheusgit1/FlashConcurseiro/blob/main/screenshots/screenshot_3.jpeg?raw=true",
+        "https://github.com/matheusgit1/FlashConcurseiro/blob/main/screenshots/screenshot_4.jpeg?raw=true",
+        "https://github.com/matheusgit1/FlashConcurseiro/blob/main/screenshots/screenshot_5.jpeg?raw=true",
+        "https://github.com/matheusgit1/FlashConcurseiro/blob/main/screenshots/screenshot_6.jpeg?raw=true",
+        "https://github.com/matheusgit1/FlashConcurseiro/blob/main/screenshots/screenshot_7.jpeg?raw=true",
+        "https://github.com/matheusgit1/FlashConcurseiro/blob/main/screenshots/screenshot_8.jpeg?raw=true",
+        "https://github.com/matheusgit1/FlashConcurseiro/blob/main/screenshots/screenshot_9.jpeg?raw=true",
+      ],
+      diagrams: [],
+      fullTechStack: {
+        frontend: [
+          "React Native",
+          "Expo 51",
+          "TypeScript",
+          "Expo Router",
+          "React Native Reanimated",
+          "React Native Gesture Handler",
+          "React Native Safe Area Context",
+        ],
+        backend: [
+          "Firebase Authentication",
+          "Firestore",
+          "Firebase Security Rules",
+          "Firebase Admin SDK",
+        ],
+        infrastructure: [
+          "Firebase Hosting",
+          "EAS Build",
+          "Docker (ambiente local)",
+          "Google Cloud Platform",
+        ],
+        testing: ["Jest", "React Native Testing Library", "Detox"],
+      },
+      features: [
+        {
+          title: "Sistema de Repetição Espaçada",
+          description:
+            "Algoritmo inteligente que agenda revisões com base no desempenho do usuário, otimizando a retenção de conhecimento.",
+          implementation:
+            "Função de agendamento que calcula a próxima revisão com base na dificuldade e acertos/erros do usuário.",
+        },
+        {
+          title: "Navegação Híbrida",
+          description:
+            "Navegação fluida combinando abas principais com stacks aninhadas para detalhes, garantindo experiência nativa.",
+          implementation:
+            "Expo Router com navegação aninhada: abas principais + stacks para detalhes.",
+        },
+        {
+          title: "Filtros Dinâmicos",
+          description:
+            "Sistema de filtros por concurso, disciplina e dificuldade com atualização em tempo real da lista de flashcards.",
+          implementation:
+            "Filtros dinâmicos implementados com React hooks, atualizando a lista automaticamente a cada alteração.",
+        },
+        {
+          title: "Sistema de Revisão com Swipe",
+          description:
+            "Interface de revisão com gestos de deslizar para esquerda (erro) ou direita (acerto), com feedback visual imediato.",
+          implementation:
+            "Animações com React Native Reanimated para feedback tátil e visual durante o swipe.",
+        },
+        {
+          title: "Autenticação com Firebase",
+          description:
+            "Sistema de login e registro com Firebase, integrando autenticação por email/senha e Google.",
+          implementation:
+            "Firebase Authentication com Context API para gerenciamento de estado global.",
+        },
+      ],
+    },
+  },
+  {
     id: "crash-game",
     title: "Crash Game Engine",
     shortDescription:

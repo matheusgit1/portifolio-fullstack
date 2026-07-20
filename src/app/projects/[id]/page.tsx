@@ -2,6 +2,8 @@
 
 import { useParams, notFound } from "next/navigation";
 import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import {
   FaGithub,
   FaLink,
@@ -12,16 +14,39 @@ import {
   FaCloud,
   FaShieldAlt,
   FaChartLine,
+  FaTimes,
+  FaExpand,
 } from "react-icons/fa";
 import { projects } from "@/data/projects-pt-BR";
 
 export default function ProjectPage() {
   const { id } = useParams();
   const project = projects.find((p) => p.id === id);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
   if (!project) {
     notFound();
   }
+
+  const openFullscreen = (imageSrc: string) => {
+    setSelectedImage(imageSrc);
+    setIsFullscreen(true);
+    document.body.style.overflow = 'hidden'; // Previne scroll
+  };
+
+  const closeFullscreen = () => {
+    setIsFullscreen(false);
+    setSelectedImage(null);
+    document.body.style.overflow = 'unset'; // Restaura scroll
+  };
+
+  // Fecha com ESC
+  const handleKeyDown = (e: any) => {
+    if (e.key === 'Escape') {
+      closeFullscreen();
+    }
+  };
 
   return (
     <div className="min-h-screen bg-black pt-24 pb-20">
@@ -53,13 +78,6 @@ export default function ProjectPage() {
             >
               <FaGithub size={18} /> GitHub
             </a>
-            {/* <a
-              href={project.live}
-              target="_blank"
-              className="flex items-center gap-2 px-5 py-2.5 bg-blue-600 rounded-lg hover:bg-blue-700 transition"
-            >
-              <FaLink size={18} /> Live Demo 
-            </a> */}
           </div>
         </div>
 
@@ -86,7 +104,6 @@ export default function ProjectPage() {
                     key={metric.label}
                     className="bg-white/5 rounded-xl p-4 text-center border border-white/10"
                   >
-                    {/* <metric className="w-6 h-6 text-blue-400 mx-auto mb-2" /> */}
                     <div className="text-2xl font-bold text-white">
                       {metric.value}
                     </div>
@@ -222,23 +239,36 @@ export default function ProjectPage() {
               </div>
             </section>
 
-            {/* Screenshots Gallery */}
+            {/* Screenshots Gallery com Fullscreen */}
             <section>
               <h2 className="text-2xl font-bold mb-4 border-l-4 border-blue-500 pl-4">
                 Screenshots
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {project.details.images.map((img, index) => (
-                  <div
+                  <motion.div
                     key={index}
-                    className="bg-gray-900 rounded-xl overflow-hidden border border-white/10"
+                    className="bg-gray-900 rounded-xl overflow-hidden border border-white/10 cursor-pointer group relative"
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.2 }}
+                    onClick={() => openFullscreen(img)}
                   >
-                    <img
-                      src={img}
-                      alt={`Screenshot ${index + 1}`}
-                      className="w-full h-48 object-cover hover:scale-105 transition duration-300"
-                    />
-                  </div>
+                    <div className="relative w-full h-48 overflow-hidden">
+                      <motion.img
+                        src={img}
+                        alt={`Screenshot ${index + 1}`}
+                        className="w-full h-full object-cover"
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ duration: 0.3 }}
+                      />
+                      {/* Overlay com ícone de expandir */}
+                      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div className="bg-white/20 rounded-full p-3 backdrop-blur-sm">
+                          <FaExpand className="text-white text-xl" />
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
                 ))}
               </div>
             </section>
@@ -250,6 +280,69 @@ export default function ProjectPage() {
           </div>
         )}
       </div>
+
+      {/* Modal Fullscreen com AnimatePresence */}
+      <AnimatePresence>
+        {isFullscreen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4"
+            onClick={closeFullscreen}
+            onKeyDown={handleKeyDown}
+            tabIndex={0}
+          >
+            {/* Botão Fechar */}
+            <motion.button
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ delay: 0.2 }}
+              onClick={closeFullscreen}
+              className="absolute top-6 right-6 text-white bg-white/10 hover:bg-white/20 rounded-full p-3 transition-all duration-300 z-10"
+            >
+              <FaTimes size={24} />
+            </motion.button>
+
+            {/* Imagem com animação de entrada */}
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.8, opacity: 0, y: 20 }}
+              transition={{ 
+                type: "spring",
+                damping: 25,
+                stiffness: 300,
+                duration: 0.4
+              }}
+              className="relative w-full max-w-7xl max-h-[90vh"
+              onClick={(e: any) => e.stopPropagation()}
+            >
+              {
+                selectedImage && (
+                  <img
+                    src={selectedImage}
+                    alt="Screenshot em tela cheia"
+                    className="w-full h-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
+                  />
+                )
+              }
+              
+              {/* Indicador de zoom (opcional) */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/50 text-sm bg-black/50 px-4 py-2 rounded-full backdrop-blur-sm"
+              >
+                Click outside or press ESC to close
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
