@@ -17,6 +17,7 @@ import {
   SiJest,
   SiSocketdotio,
 } from "react-icons/si";
+import { VscMcp } from "react-icons/vsc";
 import { DiMsqlServer } from "react-icons/di";
 
 export type HeroTranslations = {
@@ -48,7 +49,8 @@ export function Hero({ t }: { t: HeroTranslations }) {
     { name: "Docker", icon: SiDocker, color: "#2496ED" },
     { name: "RabbitMQ", icon: SiRabbitmq, color: "#FF6600" },
     { name: "Jest", icon: SiJest, color: "#C21325" },
-    { name: "Socket.IO", icon: SiSocketdotio, color: "#010101" },
+    { name: "Socket.IO", icon: SiSocketdotio, color: "#FFFF" },
+    { name: "MCP", icon: VscMcp, color: "#FFFF" },
   ];
 
   return (
